@@ -1,0 +1,24 @@
+  <div class="col-md-6 col-md-offset-3">
+    <h4>Serach By Player Name</h4>
+    <div class="form-group">
+      <input type="text" class="form-control" ng-model="nameFilter">
+    </div>    
+  </div>
+  <table class="table">
+    <thead>
+      <tr><th colspan="5">Drivers Championship Standings 2015</th></tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="driver in driversList | filter: searchFilter">
+        <td>{{$index +1}}</td>
+        <td>
+          <img ng-src="img/flags/{{driver.Driver.nationality}}.png"> 
+          {{driver.Driver.givenName}} &nbsp; {{driver.Driver.familyName}}
+
+        </td>
+        <td>{{driver.Constructors[0].name}}</td>
+        <td>{{driver.points}}</td>
+        <td><a href="./#/drivers/{{driver.Driver.driverId}}">Driver Details</a></td>
+      </tr>
+    </tbody>
+  </table>
